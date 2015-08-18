@@ -1,0 +1,56 @@
+\usepackage{graphicx}
+\usepackage{color}
+
+\usepackage{pstricks}
+
+\definecolor{olblue}{RGB}{21,55,90}
+\definecolor{olgrey}{RGB}{121,121,121}
+
+\setbeamercolor*{structure}{fg=olblue}
+
+\setbeamercolor{section in toc}{fg=olblue}
+
+\setbeamercolor{frametitle}{fg=olblue}
+\setbeamertemplate{frametitle}[default][right]
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+
+
+\setbeamercolor{block title}{bg=olblue,fg=white}
+\setbeamercolor{block body}{bg=olgrey!10,fg=olblue}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamercolor{block title alerted}{bg=red,fg=white}
+\setbeamercolor{block body alerted}{bg=red!10,fg=olblue}
+
+\setbeamercolor{normal text}{fg=olblue,bg=white}
+
+% Supervisor command definition for variable
+\newcommand{\supervisor}[1]{\newcommand{\thesupervisor}{#1 }}
+
+\renewcommand{\titlepage}{%
+	\usebackgroundtemplate{
+		\rput[lt](0,0){
+			\includegraphics[width=\paperwidth,height=\paperheight]{Title_Beamer}}
+		}
+	\begin{frame}	
+		\vspace*{0.2\textheight}
+		\hspace*{0.4\textwidth}		
+		\noindent{%
+			\begin{minipage}[h]{0.5\paperwidth}
+				\begin{flushright}
+					\fontfamily{phv}\selectfont
+					\color{olblue}
+					\usebeamerfont{title} {\LARGE\textbf \inserttitle}\par
+					\vspace{\f@size pt}
+					\color{olgrey}
+					\usebeamerfont{author} {\large Author:\par\insertauthor}\par
+					\vspace{\f@size pt}
+					\usebeamerfont{author} {\large Supervisor(s):\par\thesupervisor}\par					
+				\end{flushright}
+			\end{minipage}
+			}
+	\end{frame}
+	
+	\usebackgroundtemplate{%
+		\includegraphics[width=\paperwidth,height=\paperheight]{Backgrownd}} 
+	}

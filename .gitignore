@@ -2,3 +2,6 @@
 *.aux
 *.gz
 *.toc
+*.nav
+*.out
+*.snm

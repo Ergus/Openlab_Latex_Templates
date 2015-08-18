@@ -1,0 +1,36 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{default}
+\usepackage{OLBeamer}
+
+\title{This is the title cannot be so long}
+\author{Author name}
+\supervisor{Name Supervisor\par Name Supervisor\par Name Supervisor}
+
+\begin{document}
+\titlepage
+
+%create frame old way
+\frame{
+	\frametitle{Contents}
+	\tableofcontents
+	}
+
+%create a section (to see something in the toc, not needed)
+\section{Section 1}
+
+%frame with begin (new way)
+\begin{frame}
+	\frametitle{This is the Frametitle}
+	\framesubtitle{This is the Framesubtitle}
+	This is Normal text in the frame body
+	
+	\begin{block}{This is a block}
+		Text inside a block
+	\end{block}
+	
+	\begin{alertblock}{This is an alert}
+		This is text alerted
+	\end{alertblock}
+\end{frame}
+
+\end{document}
