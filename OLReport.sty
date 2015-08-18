@@ -22,6 +22,9 @@
 \definecolor{olblue}{RGB}{21,55,90}
 \definecolor{olgrey}{RGB}{121,121,121}
 
+\usepackage{caption}
+\usepackage[font={color=olblue}]{caption}
+
 % Numerar hasta subsecciones
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
@@ -48,6 +51,8 @@
 
 % Number format for sections
 \renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \renewcommand{\contentsname}{\sffamily\Huge\bfseries\textcolor{olblue}{Table of Contents}}
