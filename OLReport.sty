@@ -1,0 +1,136 @@
+%...oooOOO000OOOooo......oooOOO000OOOooo......oooOOO000OOOooo...
+% This template is protected under GPL2+ License
+% This package defines the template for the Openlab Summer 
+% students report. This is a beta version created by
+% Jimmy Aguilar Mena. August, 2015
+% Any bug report, or comment: kratsbinovish@gmail.com
+% If you use this package (or correct it), 
+% please inform the author if possible via e-mail.
+%...oooOOO000OOOooo......oooOOO000OOOooo......oooOOO000OOOooo...
+
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{datetime}
+\usepackage{titlesec}
+\usepackage{fullpage}
+\usepackage{color}
+
+% Supervisor command definition for variable
+\newcommand{\supervisor}[1]{\newcommand{\thesupervisor}{#1 }}
+
+% Defining Colors
+\definecolor{olblue}{RGB}{21,55,90}
+\definecolor{olgrey}{RGB}{121,121,121}
+
+% Numerar hasta subsecciones
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% Defining Headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\headsep = 20pt
+
+\lhead{\textcolor{olgrey}{CERN openlab Summer Student Report}}
+\rhead{\textcolor{olgrey}{\the\year}}
+\cfoot{}
+\lfoot{\textcolor{olblue}{\thepage $|$ P\ a\ g\ e}}
+
+\renewcommand\headrule{}
+\renewcommand\footrule{
+	\color{olgrey}
+	\vspace{1pt}
+	\hrule height 1pt width \linewidth
+}
+
+% Format for the day
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
+% Number format for sections
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\contentsname}{\sffamily\Huge\bfseries\textcolor{olblue}{Table of Contents}}
+
+% Color and font for text in sectioning
+% section format
+\titleformat{\section}[block]
+{\sffamily\Huge\bfseries}
+{\color{olblue} \thesection}
+{1ex}{\color{olblue}}
+\titlespacing*{\section}{0pt}{\f@size pt}{10pt}
+
+% subsection format
+\titleformat{\subsection}[block]
+{\sffamily\LARGE\bfseries}
+{\color{olblue} \thesubsection}
+{1ex}{\color{olblue}}
+\titlespacing*{\subsection}{0pt}{\f@size pt}{10pt}
+
+% subsubsection format
+\titleformat{\subsubsection}[block]
+{\sffamily\Large\bfseries}
+{\color{olblue} \thesubsubsection}
+{1ex}{\color{olblue}}
+\titlespacing*{\subsubsection}{0pt}{\f@size pt}{10pt}
+
+%this is for the backgrownd image in titlepage
+\newcommand\BackgroundPic{
+	\put(0,0){
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			\includegraphics[width=1.2\paperwidth,height=\paperheight]{Title}%
+			\vfill
+		}
+	}
+	\put(0,20){
+		\parbox[t][\paperheight]{\paperwidth}{%
+			\hspace{0.65\paperwidth}
+			\includegraphics[width=0.25\paperwidth]{Logo}
+			}
+		}			
+	}
+
+% This is the definition for titlepage
+\makeatletter
+\renewcommand{\maketitle}{%
+	\begin{titlepage}
+		\AddToShipoutPicture*{\BackgroundPic}
+		\vspace*{0.45\textheight}
+		\hspace*{0.4\textwidth}
+		\begin{minipage}[h]{0.5\paperwidth}
+			\begin{flushleft}
+				\fontfamily{phv}\selectfont
+				\color{olblue}
+				\Huge\@title\\
+				\vspace{\f@size pt}
+				\Large\monthyeardate\today\\
+				\color{olgrey}
+				\vspace{\f@size pt}
+				Author:\newline\@author\\
+				\vspace{\f@size pt}
+				Supervisor:\newline\thesupervisor\\
+				\vspace{\f@size pt}
+				CERN openlab Summer Student Report \THEYEAR
+			\end{flushleft}
+		\end{minipage}
+	\end{titlepage}
+}
+\makeatother
+
+% Enviroment specifications
+\newenvironment{specification}{
+	\thispagestyle{empty}
+	\begin{flushleft}
+		\textcolor{olblue}{\sffamily\LARGE\textbf{Project Specification}}\\
+	\end{flushleft}
+}{\newpage}
+
+% Redefining the abstract enviroment.
+\renewenvironment{abstract}{
+	\thispagestyle{empty}
+	\begin{flushleft}
+		\textcolor{olblue}{\sffamily\LARGE\textbf{Abstract}}\\
+	\end{flushleft}
+}{\newpage}
